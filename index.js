@@ -9,10 +9,10 @@ app.get('/', function(req,res) {
 	res.sendFile('index.html', {root: path.join(__dirname, './public')});
 });
 
-app.get('/index', function(req,res) {
-	console.log("/index");
-	res.sendFile(path.join(__dirname + '/public/index.html'));
-});
+// app.get('/index', function(req,res) {
+// 	console.log("/index");
+// 	res.sendFile(path.join(__dirname + '/public/index.html'));
+// });
 
 // app.get('/setTable', function(req, res) {
 //     console.log('/setTable');
