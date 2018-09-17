@@ -6,12 +6,12 @@ upload full-stack website with Heroku + mongodb + mLab
  * installitions: node.js, GitHub desktop, git and code editor (VS Code / Sublime 3).
 
 # Instructions:
-  * # first step:
+ # first step:
   * clone this repo.
   * run "npm install" on the repo folder.
   * run "npm start" and check all working => (http://localhost:8080/)
   
-  * # second step:
+ # second step:
   * sign up to Heroku.
   * create new app.
   * connect to github repo.
