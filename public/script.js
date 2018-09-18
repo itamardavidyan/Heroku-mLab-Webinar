@@ -28,7 +28,6 @@ $( document ).ready(function() {
 		})
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data);
 			alert(data.msg);
 		});
     });
