@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
-// const MongoClient = require('mongodb').MongoClient;
-// const mongoDBurl = "mongodb://itamard:Google100!@ds229312.mlab.com:29312/forms";
+
+const MongoClient = require('mongodb').MongoClient;
+// const mongoDBurl = "mongodb://<dbuser>:<dbpassword>@ds161112.mlab.com:61112/alerts";
+const mongoDBurl = "mongodb://admin:myFirstWebinar1@ds161112.mlab.com:61112/alerts";
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -13,72 +15,132 @@ app.get('/', function(req,res) {
 	res.render('index.html');
 });
 
-app.post('/send', function(req, res) {
-	console.log('/send');
+app.post('/show', function(req, res) {
+	console.log('/show');
 	var name = req.body.name;
 	// console.log(req.body);
 
-	if (name === '' || name === undefined || name === null) return res.json({"msg":"enter your name"});
+	if (name === '' || name === undefined || name === null) return res.json({"msg":"enter your name!"});
 
+	// enter mondodb code
+
+	// <!-- 0 - comment when connect to mLab --!>
 	const msg = 'Hello ' + name + '!!';
 	return res.json({"msg":msg});
 
 });
 
-// app.get('/index', function(req,res) {
-// 	console.log("/index");
-// 	res.sendFile(path.join(__dirname + '/public/index.html'));
-// });
+app.post('/add', function(req, res) {
+	console.log('/add');
 
-// app.get('/setTable', function(req, res) {
-//     console.log('/setTable');
-//     MongoClient.connect(mongoDBurl, function(err, db) {
-// 		if (err) throw err;
-// 		var dbo = db.db("forms");
+	// enter mondodb code
 
-// 		dbo.collection("forms").find({}).sort({form_id: 1}).toArray(function(err, result) {
-// 			if (err) throw err;
-// 			res.send(result);
-// 			db.close();
-// 		});
-// 	});
-// });
+});
 
-// app.post('/save', function(req, res) {
-//     console.log('/save');
-//     MongoClient.connect(mongoDBurl, function(err, db) {
-// 		if (err) throw err;
-// 		var dbo = db.db("forms");
-// 		var lastID;
+// <!-- 1 - simple connection --!>
+// { <-- show event -->
 
-// 		dbo.collection('forms', function(err, collection) {
-// 			collection
-// 				.find()
-// 				.sort({form_id: -1})
-// 				.limit(1)
-// 				.next()
-// 				.then(
-// 				function(doc) {
-// 					lastID = doc.form_id;
-// 					lastID++;
+	// MongoClient.connect(mongoDBurl, function(err, db) {
+	// 	if (err) throw err;
+	// 	var dbo = db.db("alerts");
+	// 	dbo.collection("messages").findOne({id:1}, function(err, result) {
+	// 		if (err) throw err;
+	// 		console.log(result);
+	// 		return res.json({"msg":result.msg});
+	// 		db.close();
+	// 	});
+	// });
 
-// 					var myobj = { form_id: lastID , form_name: req.body.formname, num_submissions:0, fields: JSON.parse(req.body.tabledata), submissions: JSON.parse(req.body.inputNames) };
+// }
 
-// 					dbo.collection("forms").insertOne(myobj, function(err, res) {
-// 						if (err) throw err;
-// 						db.close();
-// 					});
-// 				},
-// 				function(err) {
-// 					console.log('Error:', err);
-// 				}
-// 			);
-// 		});
-// 	});
-// });
+// <!-- 2 - get the count of documents and return random msg --!> 
+// { <-- show event -->
 
-const PORT = process.env.PORT || 3000;
-// const PORT = 8080;
+	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
+	// 	if (err) throw err;
+
+	// 	var ranMsgId;
+	// 	var dbo = db.db("alerts");
+
+    //     dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
+	// 		if (err) throw err;
+	// 		console.log(numOfDocs);
+	// 		ranMsgId = Math.floor(Math.random() * numOfDocs) + 1;
+	// 		console.log(ranMsgId);
+
+	// 		dbo.collection("messages").findOne({id:ranMsgId}, function(err, result) {
+	// 			if (err) throw err;
+	// 			return res.json({"msg":result.msg});
+	// 			db.close();
+	// 		});
+	// 	});
+    // });
+
+// }
+
+// <!-- 3 - create new doc --!>
+// { <-- add event -->
+
+	// var name = req.body.name;
+
+	// if (name === '' || name === undefined || name === null) return res.json({"msg":"enter your name!"});
+
+	// // enter mondodb code
+	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
+	// 	if (err) throw err;
+
+	// 	var dbo = db.db("alerts");
+
+	// 	dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
+	// 		if (err) throw err;
+	// 		numOfDocs++;
+	// 		console.log(numOfDocs);
+	// 		const newMsg = 'Hello ' + name +'!';
+
+	// 		var myobj = { id: numOfDocs , msg: newMsg, counter:0 };
+
+	// 		dbo.collection("messages").insertOne(myobj, function(err, res) {
+	// 			if (err) throw err;
+	// 			db.close();
+	// 		});
+	// 	});
+	// });
+
+// }
+
+
+// <!-- 4 - update counter --!>
+// { <-- show event -->
+	
+	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
+	// 	if (err) throw err;
+
+	// 	var ranMsgId;
+	// 	var dbo = db.db("alerts");
+
+	// 	dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
+	// 		if (err) throw err;
+	// 		ranMsgId = Math.floor(Math.random() * numOfDocs) + 1; // random number between 1 to numOfDocs
+
+	// 		dbo.collection("messages").findOne({id:ranMsgId}, function(err, result) {
+	// 			if (err) throw err;
+
+	// 			var myquery = { id: ranMsgId };
+	// 			var newvalues = { $inc: { counter: 1} };
+
+	// 			dbo.collection("messages").updateOne(myquery, newvalues, function(err, unUseResult) {
+	// 				if (err) throw err;
+	// 				return res.json({"msg":result.msg});
+	// 				db.close();
+	// 			});
+	// 		});
+	// 	});
+	// });
+
+// }
+
+// const PORT = process.env.PORT || 3000; // enable when deploy to Heroku (commit to GitHub)
+const PORT = 8080; // enable when work localy
 app.listen(PORT, function() {
-	console.log("listen to PORT 8080");
+	console.log("listen to PORT " + PORT);
 });
