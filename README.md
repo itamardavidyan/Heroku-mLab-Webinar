@@ -4,7 +4,7 @@ upload full-stack website with Heroku + mongodb + mLab
 # Previous knowledge and Preparation
  * knowledge: html, css (bootsttrap), javascript, jquery and basics of node.js.
  * installitions: [node.js](https://nodejs.org/en/), [GitHub desktop](https://desktop.github.com/), [git](https://git-scm.com/) and code editor ([VS Code](https://code.visualstudio.com/) / [Sublime 3](https://www.sublimetext.com/)).
- * sign up: Heroku + mLab.
+ * sign up: [Heroku](https://www.heroku.com/) + [mLab](https://mlab.com/).
 
 # Instructions:
 ### initialization:
@@ -14,14 +14,14 @@ upload full-stack website with Heroku + mongodb + mLab
 - [ ] run "npm start" and check all working => (http://localhost:8080/)
   
 ### work with Heroku:
-- [ ] sign up to Heroku.
+- [ ] sign up to [Heroku](https://www.heroku.com/).
 - [ ] create new app.
 - [ ] connect to github repo.
 - [ ] enable automatic deploy.
 - [ ] commit & push the code to GitHub -.then() check on Heroku app.
 
 ### work with mLab:
-- [ ] sign up to mLab.
+- [ ] sign up to [mLab](https://mlab.com/).
 - [ ] create new DB. ('alerts')
 - [ ] create new collection ('messages') with some documents ('{"id": 1, "msg": "Hello World", "counter": 0}').
 - [ ] add new user to the DB. (user: admin, password: myFirstWebinar1)
