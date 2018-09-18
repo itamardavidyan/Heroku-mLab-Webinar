@@ -27,7 +27,7 @@ upload full-stack website with Heroku + mongodb + mLab
 - [ ] add new user to the DB. (user: admin, password: myFirstWebinar1)
 - [ ] modify the MongoDB - assign username + password.
 - [ ] copy the MongoDB URI to 'index.js' file.
-- [ ] copy the MongoDB URI to 'Config Vars' in Heroku (MONGODB_URI : mongodb://admin:myFirstWebinar1@ds161112.mlab.com:61112/alerts)
+- [ ] copy the MongoDB URI to 'Config Vars' in Heroku (MONGODB_URI : 'mongodb://admin:myFirstWebinar1@ds161112.mlab.com:61112/alerts')
 - [ ] example 0 - alert Hello + {name} .
 - [ ] example 1 - simple connection to mongoDB.
 - [ ] example 2 - get the count of documents and return random msg.
