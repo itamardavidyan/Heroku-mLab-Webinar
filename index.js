@@ -139,8 +139,8 @@ app.post('/add', function(req, res) {
 
 // }
 
-// const PORT = process.env.PORT || 3000; // enable when deploy to Heroku (commit to GitHub)
-const PORT = 8080; // enable when work localy
+const PORT = process.env.PORT || 3000; // enable when deploy to Heroku (commit to GitHub)
+// const PORT = 8080; // enable when work localy
 app.listen(PORT, function() {
 	console.log("listen to PORT " + PORT);
 });
