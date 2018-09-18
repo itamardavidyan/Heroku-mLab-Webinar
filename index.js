@@ -75,7 +75,7 @@ app.post('/add', function(req, res) {
 
 			var myobj = { id: numOfDocs , msg: newMsg, counter:0 };
 
-			dbo.collection("messages").insertOne(myobj, function(err, res) {
+			dbo.collection("messages").insertOne(myobj, function(err, resp) {
 				if (err) throw err;
 				return res.json({"msg":'the alert created successfully'});
 			});
