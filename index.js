@@ -77,7 +77,7 @@ app.post('/add', function(req, res) {
 
 			dbo.collection("messages").insertOne(myobj, function(err, res) {
 				if (err) throw err;
-				db.close();
+				return res.json({"msg":'the alert created successfully'});
 			});
 		});
 	});
@@ -95,7 +95,6 @@ app.post('/add', function(req, res) {
 	// 		if (err) throw err;
 	// 		console.log(result);
 	// 		return res.json({"msg":result.msg});
-	// 		db.close();
 	// 	});
 	// });
 
@@ -119,7 +118,6 @@ app.post('/add', function(req, res) {
 	// 		dbo.collection("messages").findOne({id:ranMsgId}, function(err, result) {
 	// 			if (err) throw err;
 	// 			return res.json({"msg":result.msg});
-	// 			db.close();
 	// 		});
 	// 	});
     // });
@@ -148,7 +146,7 @@ app.post('/add', function(req, res) {
 
 	// 		dbo.collection("messages").insertOne(myobj, function(err, res) {
 	// 			if (err) throw err;
-	// 			db.close();
+	// 				return res.json({"msg":'the alert created successfully'});
 	// 		});
 	// 	});
 	// });
@@ -178,7 +176,6 @@ app.post('/add', function(req, res) {
 	// 			dbo.collection("messages").updateOne(myquery, newvalues, function(err, unUseResult) {
 	// 				if (err) throw err;
 	// 				return res.json({"msg":result.msg});
-	// 				db.close();
 	// 			});
 	// 		});
 	// 	});
