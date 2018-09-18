@@ -42,7 +42,6 @@ app.post('/show', function(req, res) {
 				dbo.collection("messages").updateOne(myquery, newvalues, function(err, unUseResult) {
 					if (err) throw err;
 					return res.json({"msg":result.msg});
-					db.close();
 				});
 			});
 		});
@@ -50,8 +49,8 @@ app.post('/show', function(req, res) {
 
 
 	// <!-- 0 - comment when connect to mLab --!>
-	const msg = 'Hello ' + name + '!!';
-	return res.json({"msg":msg});
+	// const msg = 'Hello ' + name + '!!';
+	// return res.json({"msg":msg});
 
 });
 
