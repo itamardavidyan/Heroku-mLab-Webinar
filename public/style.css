@@ -1,8 +1,7 @@
-body {
-    background-color: lightblue;
-}
-
 h1 {
     color: red;
-    background-color: blue;
+}
+
+label, input, a {
+    margin: 5px;
 }

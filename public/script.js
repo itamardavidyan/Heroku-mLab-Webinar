@@ -1,33 +1,44 @@
 $( document ).ready(function() {
-	alert('try');
-
-    // ajaxGet();
-
-	// function ajaxGet(){
-	// 	$.ajax({
-	// 		type : "GET",
-	// 		url : '/setTable',
-	// 		success: function(forms){
-	// 			$.each(forms, function(i, form){
-					
-	// 				var formRow = '<tr>' +
-	// 									'<td>' + form.form_id + '</td>' +
-	// 									'<td>' + form.form_name + '</td>' +
-	// 									'<td>' + form.num_submissions + '</td>' +
-	// 									'<td>' + '<a href="/submit?fieldID=' + form.form_id + '">View</a>' + '</td>' +
-	// 									'<td>' + '<a href="/submissions?fieldID=' + form.form_id + '">View</a>' + '</td>' +
-	// 							  '</tr>';
-					
-	// 				$('#formsTable tbody').append(formRow);
-					
-	// 	        });
-				
-	// 			$( "#formsTable tbody tr:odd" ).addClass("info");
-	// 			$( "#formsTable tbody tr:even" ).addClass("success");
-	// 		},
-	// 		error : function(e) {
-	// 			console.log("ERROR: ", e);
-	// 		}
-	// 	});	
-	// }
+	// alert('try');
+	$("#alertBtn").click(function(){
+		// alert("alert pop up!");
+		var name = $('#name-input').val();
+		fetch('/send', {
+			method:'POST',
+			headers: {
+			  'Accept': 'application/json, text/plain, */*',
+			  'Content-type':'application/json'
+			},
+			body:JSON.stringify({name: name})
+		})
+		.then((res) => res.json())
+		.then((data) => {
+			console.log(data);
+			alert(data.msg);
+		});
+    });
 });
+
+
+// $("#alertBtn").click(function(){	
+// 	var name = $('#name-input').val();
+// 	$.post("/save",{name: name}, function(data){
+//		
+// 	});
+// });
+
+
+// 	var name = $('#name-input').val();
+// fetch('/send', {
+// 	method:'POST',
+// 	headers: {
+// 	  'Accept': 'application/json, text/plain, */*',
+// 	  'Content-type':'application/json'
+// 	},
+// 	body:JSON.stringify({name: name})
+// })
+// .then((res) => res.json())
+// .then((data) => {
+// 	console.log(data);
+// 	alert(data.msg);
+// });

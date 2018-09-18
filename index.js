@@ -1,12 +1,28 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
-const mongoDBurl = "mongodb://itamard:Google100!@ds229312.mlab.com:29312/forms";
-const path = require('path');
+var bodyParser = require('body-parser');
+// const MongoClient = require('mongodb').MongoClient;
+// const mongoDBurl = "mongodb://itamard:Google100!@ds229312.mlab.com:29312/forms";
+
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req,res) {
 	console.log("/");
-	res.sendFile('index.html', {root: path.join(__dirname, './public')});
+	res.render('index.html');
+});
+
+app.post('/send', function(req, res) {
+	console.log('/send');
+	var name = req.body.name;
+	// console.log(req.body);
+
+	if (name === '' || name === undefined || name === null) return res.json({"msg":"enter your name"});
+
+	const msg = 'Hello ' + name + '!!';
+	return res.json({"msg":msg});
+
 });
 
 // app.get('/index', function(req,res) {
