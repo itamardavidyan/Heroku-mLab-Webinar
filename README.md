@@ -2,7 +2,7 @@
 upload full-stack website with Heroku + mongodb + mLab
 
 # Previous knowledge and Preparation
- * knowledge: html, css (bootsttrap), javascript, jquery and basics of node.js.
+ * knowledge: html, css (bootstrap), javascript, jquery and basics of node.js.
  * installitions: [node.js](https://nodejs.org/en/), [GitHub desktop](https://desktop.github.com/), [git](https://git-scm.com/) and code editor ([VS Code](https://code.visualstudio.com/) / [Sublime 3](https://www.sublimetext.com/)).
  * sign up: [Heroku](https://www.heroku.com/) + [mLab](https://mlab.com/).
 
