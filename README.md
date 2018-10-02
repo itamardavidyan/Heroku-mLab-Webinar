@@ -18,16 +18,18 @@ upload full-stack website with Heroku + mongodb + mLab
 - [ ] create new app.
 - [ ] connect to github repo.
 - [ ] enable automatic deploy.
+- [ ] initialize PORT.
 - [ ] commit & push the code to GitHub -.then() check on Heroku app.
 
 ### work with mLab:
 - [ ] sign up to [mLab](https://mlab.com/).
 - [ ] create new DB. ('alerts')
 - [ ] create new collection ('messages') with some documents ('{"id": 1, "msg": "Hello World", "counter": 0}').
+- [ ] copy the MongoDB URI to 'index.js' file.
 - [ ] add new user to the DB. (user: admin, password: myFirstWebinar1)
 - [ ] modify the MongoDB - assign username + password.
-- [ ] copy the MongoDB URI to 'index.js' file.
 - [ ] copy the MongoDB URI to 'Config Vars' in Heroku (MONGODB_URI : 'mongodb://admin:myFirstWebinar1@ds161112.mlab.com:61112/alerts')
+- [ ] use nodemon - run "nodemon index.js"
 - [ ] example 0 - alert Hello + {name} .
 - [ ] example 1 - simple connection to mongoDB.
 - [ ] example 2 - get the count of documents and return random msg.

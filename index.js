@@ -3,17 +3,12 @@ const app = express();
 var bodyParser = require('body-parser');
 
 const MongoClient = require('mongodb').MongoClient;
-// const mongoDBurl = "mongodb://<dbuser>:<dbpassword>@ds161112.mlab.com:61112/alerts";
-const mongoDBurl = "mongodb://admin:myFirstWebinar1@ds161112.mlab.com:61112/alerts";
+// const mongoDBurl = "mongodb://<dbuser>:<dbpassword>@ds259742.mlab.com:59742/alerts";
+const mongoDBurl = "mongodb://admin:myFirstWebinar1@ds259742.mlab.com:59742/alerts";
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-app.get('/', function(req,res) {
-	console.log("/");
-	res.render('index.html');
-});
 
 app.post('/show', function(req, res) {
 	console.log('/show');
@@ -38,10 +33,10 @@ app.post('/add', function(req, res) {
 
 });
 
-// <!-- 1 - simple connection --!>
+// <!-- 1 - simple connection to mongoDB --!>
 // { <-- show event -->
 
-	// MongoClient.connect(mongoDBurl, function(err, db) {
+	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
 	// 	if (err) throw err;
 	// 	var dbo = db.db("alerts");
 	// 	dbo.collection("messages").findOne({id:1}, function(err, result) {
@@ -59,13 +54,12 @@ app.post('/add', function(req, res) {
 	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
 	// 	if (err) throw err;
 
-	// 	var ranMsgId;
-	// 	var dbo = db.db("alerts");
+	// 	const dbo = db.db("alerts");
 
-    //     dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
+	// 	dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
 	// 		if (err) throw err;
 	// 		console.log(numOfDocs);
-	// 		ranMsgId = Math.floor(Math.random() * numOfDocs) + 1;
+	// 		const ranMsgId = Math.floor(Math.random() * numOfDocs) + 1;
 	// 		console.log(ranMsgId);
 
 	// 		dbo.collection("messages").findOne({id:ranMsgId}, function(err, result) {
@@ -73,7 +67,7 @@ app.post('/add', function(req, res) {
 	// 			return res.json({"msg":result.msg});
 	// 		});
 	// 	});
-    // });
+	// });
 
 // }
 
@@ -113,12 +107,11 @@ app.post('/add', function(req, res) {
 	// MongoClient.connect(mongoDBurl, { useNewUrlParser: true }, function(err, db) {
 	// 	if (err) throw err;
 
-	// 	var ranMsgId;
-	// 	var dbo = db.db("alerts");
+	// 	const dbo = db.db("alerts");
 
 	// 	dbo.collection("messages").countDocuments({}, function(err, numOfDocs){
 	// 		if (err) throw err;
-	// 		ranMsgId = Math.floor(Math.random() * numOfDocs) + 1; // random number between 1 to numOfDocs
+	// 		const ranMsgId = Math.floor(Math.random() * numOfDocs) + 1; // random number between 1 to numOfDocs
 
 	// 		dbo.collection("messages").findOne({id:ranMsgId}, function(err, result) {
 	// 			if (err) throw err;
@@ -128,6 +121,7 @@ app.post('/add', function(req, res) {
 
 	// 			dbo.collection("messages").updateOne(myquery, newvalues, function(err, unUseResult) {
 	// 				if (err) throw err;
+	// 				console.log(unUseResult);
 	// 				return res.json({"msg":result.msg});
 	// 			});
 	// 		});
